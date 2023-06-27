@@ -17,7 +17,7 @@ extern char **environ;
 
 void shell(void);
 int exec_cmd(char **arg, char *full, char *line);
-void _path(char *bin, char *path, char **full);
+void _path_(char *bin, char *path, char **full);
 int tokenize_string(char *line, char **arg);
 ssize_t read_command(char **line, size_t *len);
 void shell(void);
