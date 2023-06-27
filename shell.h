@@ -1,44 +1,31 @@
 #ifndef SHELL_H
 #define SHELL_H
 
-#define LSH_TOK_BUFSIZE 64
-#define LSH_TOK_DELIM " \t\r\n\a"
+#define COMMAND_ENV 1
+#define COMMAND_EXIT 2
+#define COMMAND_CUSTOM 3
 
-#include <sys/wait.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <unistd.h>
-#include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <fcntl.h>
-#include <signal.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <stdint.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 
-/* string manipulations functions */
-int _strlen(char *s);
-char *_strcpy(char *dest, char *src);
-char *_strncat(char *dest, char *src);
-int _strcmp(char *s1, char *s2);
-char *_strdup(char *str);
-void print_string(char *string);
-char *_memcpy(char *dest, char *Src, unsigned int n);
+extern char **environ;
 
-/* shell basic process */
-int main(int argc, char *argv[], char *env[]);
-int shell_loop(char **env);
-char *read_command(char **env);
-char **split_command(char *string);
-void forkwaitexec(int status, char **argv, int *count, int *stad_exit);
-void rm_new_line(char *string);
-int _path(char *args, char **argv, char **env, int *stad_exit);
-char *print_path(char *der, char *args);
-char **_parser(char *string);
-int printenv(char **env, int *stad_exit);
-void built_in(char *string, char **argv, char **env, int *ex_it);
-void simple_print_shell(char *string);
-void print_count(int *count);
-int _putchar(char c);
-int func_ctrl_d(char *string, ssize_t read, int *stad_exit);
-
+void shell(void);
+int exec_cmd(char **arg, char *full, char *line);
+void _path(char *bin, char *path, char **full);
+int tokenize_string(char *line, char **arg);
+ssize_t read_command(char **line, size_t *len);
+void shell(void);
+int get_command_type(const char *line);
+int is_valid_exit_num(char *arg);
+void exit_func(char *arg[], char *line, int exitstatus);
+int check_if_numeric(const char *str);
+int remove_whitespace(char *str);
+void print_env(void);
 
 #endif
