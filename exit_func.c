@@ -1,4 +1,4 @@
-#include "main.h"
+#include "shell.h"
 /**
  * exit_func - function that handle the termination of a shell program
  * @arg: array of string represent command line with arguments
