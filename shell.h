@@ -15,12 +15,11 @@
 
 extern char **environ;
 
-void shell(void);
+void shell_(void);
 int exec_cmd(char **arg, char *full, char *line);
 void _path_(char *bin, char *path, char **full);
 int tokenize_string(char *line, char **arg);
 ssize_t read_command(char **line, size_t *len);
-void shell(void);
 int get_command_type(const char *line);
 int is_valid_exit_num(char *arg);
 void exit_func(char *arg[], char *line, int exitstatus);
