@@ -21,6 +21,7 @@ void _path_(char *bin, char *path, char **full);
 int tokenize_string(char *line, char **arg);
 ssize_t read_command(char **line, size_t *len);
 int get_command_type(const char *line);
+void shell_(void);
 int is_valid_exit_num(char *arg);
 void exit_func(char *arg[], char *line, int exitstatus);
 int check_if_numeric(const char *str);
