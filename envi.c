@@ -1,4 +1,4 @@
-#include "main.h"
+#include "shell.h"
 /**
  * print_env - this function is used to print all environment in the program
  *
