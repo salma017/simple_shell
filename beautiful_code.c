@@ -16,8 +16,5 @@ int myOtherNum = 23;
 myNum = myOtherNum;
 
 /* myNum is now 23, instead of 15 */
-{ printf("%d", myNum);
-
-}
-return
+printf("%d", myNum);
 }
