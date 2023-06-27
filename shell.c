@@ -31,12 +31,12 @@ void shell_(void)
 				break;
 			case COMMAND_EXIT:
 				tokenize_string(line, arg);
-				handle_exit(arg, line, exitstatus);
+				exit_func(arg, line, exitstatus);
 				break;
 			default:
 				tokenize_string(line, arg);
 				_path_(arg[0], path, &full);
-				exitstatus = execute_command(arg, full, line);
+				exitstatus = exec_cmd(arg, full, line);
 				break;
 		}
 	}
