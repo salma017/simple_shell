@@ -34,7 +34,7 @@ int remove_whitespace(char *str)
 	return (i == 0);
 }
 /**
- * get_command_type - determines the type of command line based on input
+ * get_command_type - determines the type of command line based on input type
  * @line: user input command
  * Return: depend
  */
